@@ -65,8 +65,8 @@ const Sponsors: React.FC = () => {
     {
       id: 9,
       name: "Ev Battery solutions",
-      logo: "/pictures/sponsor_pics/ev battery.jpeg",
-      url: "https://www.emworks.com/",
+      logo: "/pictures/sponsor_pics/ev-battery-solutions.png.webp",
+      url: "https://evbatterysolutions.com/",
     },
     {
       id: 10,
@@ -78,8 +78,15 @@ const Sponsors: React.FC = () => {
       id: 11,
       name: "Dev components",
       logo: "/pictures/sponsor_pics/dev components.jpeg",
-      url: "https://honeycombindia.com/",
+      url: "https://stampinglaminations.com/",
     },
+{
+    id: 12,
+    name: "Bender",
+    logo: "/pictures/sponsor_pics/Bender.jpeg",
+    url: "https://www.bender-in.com/",
+  },
+    
   ];
 
   const containerVariants = {
