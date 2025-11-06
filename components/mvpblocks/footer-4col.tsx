@@ -1,93 +1,109 @@
-import {
-  Dribbble,
-  Facebook,
-  Github,
-  Instagram,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-} from 'lucide-react';
-import Link from 'next/link';
+'use client';
 
-const data = {
-  facebookLink: 'https://facebook.com/mvpblocks',
-  instaLink: 'https://instagram.com/mvpblocks',
-  twitterLink: 'https://twitter.com/mvpblocks',
-  githubLink: 'https://github.com/mvpblocks',
-  dribbbleLink: 'https://dribbble.com/mvpblocks',
-  services: {
-    webdev: '/web-development',
-    webdesign: '/web-design',
-    marketing: '/marketing',
-    googleads: '/google-ads',
-  },
-  about: {
-    history: '/company-history',
-    team: '/meet-the-team',
-    handbook: '/employee-handbook',
-    careers: '/careers',
-  },
-  help: {
-    faqs: '/faqs',
-    support: '/support',
-    livechat: '/live-chat',
-  },
-  contact: {
-    email: 'hello@mvpblocks.com',
-    phone: '+91 8637373116',
-    address: 'Kolkata, West Bengal, India',
-  },
-  company: {
-    name: 'LoopMIT',
-    description:
-      'Building beautiful and functional web experiences with modern technologies. We help startups and businesses create their digital presence.',
-    logo: '/pictures/maglev-hyperloop-train-svgrepo-com.png',
-  },
-};
-
-const socialLinks = [
-  
-  { icon: Instagram, label: 'Instagram', href: data.instaLink },
-  { icon: Twitter, label: 'Twitter', href: data.twitterLink },
-  
-  
-];
-
-const aboutLinks = [
-  { text: 'Company History', href: data.about.history },
-  { text: 'Meet the Team', href: data.about.team },
-  
-  { text: 'Careers', href: data.about.careers },
-];
-
-
-
-
-
+import { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import Earth from '@/components/ui/globe';
+import { SparklesCore } from '@/components/ui/sparkles';
+import { Label } from '@/components/ui/label';
+import { Check, Dribbble, Facebook, Github, Instagram, Link, Loader2, Twitter } from 'lucide-react';
 
 export default function Footer1() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const formRef = useRef(null);
+  const isInView = useInView(formRef, { once: true, amount: 0.3 });
+
+  const data = {
+    facebookLink: 'https://facebook.com/mvpblocks',
+    instaLink: 'https://instagram.com/mvpblocks',
+    twitterLink: 'https://twitter.com/mvpblocks',
+    company: {
+      name: 'LoopMIT',
+      description:
+        'Building beautiful and functional web experiences with modern technologies. We help startups and businesses create their digital presence.',
+      logo: '/pictures/logo/logo.png',
+    },
+  }
+  const socialLinks = [
+    { icon: Facebook, label: 'Facebook', href: data.facebookLink },
+    { icon: Instagram, label: 'Instagram', href: data.instaLink },
+    { icon: Twitter, label: 'Twitter', href: data.twitterLink },
+    
+  ];
+
   return (
-    <footer className="bg-black mt-16 w-full place-self-end rounded-t-xl">
-      <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div>
-            <div className="text-gradient flex justify-center gap-2 sm:justify-start">
+    <section className="bg-background relative w-full overflow-hidden py-16 md:py-24">
+      <div
+        className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full opacity-20 blur-[120px]"
+        style={{
+          background: `radial-gradient(circle at center, #e60a64, transparent 70%)`,
+        }}
+      />
+      <div
+        className="absolute right-0 bottom-0 h-[300px] w-[300px] rounded-full opacity-10 blur-[100px]"
+        style={{
+          background: `radial-gradient(circle at center, #e60a64, transparent 70%)`,
+        }}
+      />
+
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
+        <div className="border-border/40 bg-secondary/20 mx-auto max-w-5xl overflow-hidden rounded-[28px] border shadow-xl backdrop-blur-sm">
+          <div className="grid md:grid-cols-2">
+            <div className="relative p-6 md:p-10" ref={formRef}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex w-full gap-2"
+              >
+                <div className="text-primary flex justify-center gap-2 sm:justify-start">
               <img
                 src={data.company.logo || '/placeholder.svg'}
                 alt="logo"
-                className="h-8 w-8 rounded-full"
+                className="h-20 rounded-full justify-center"
               />
-              <span className="text-2xl font-semibold">
-                {data.company.name}
-              </span>
+              
             </div>
+               <br/> 
+                
+                <SparklesCore
+                  id="tsparticles"
+                  background="transparent"
+                  minSize={0.6}
+                  maxSize={1.4}
+                  particleDensity={500}
+                  className="absolute inset-0 top-0 h-24 w-full"
+                  particleColor="#023E8A"
+                />
+                
+              </motion.div>
 
-            <p className="text-foreground/50 mt-6 max-w-md text-center leading-relaxed sm:max-w-xs sm:text-left">
-              {data.company.description}
-            </p>
-
-            <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
+              <motion.form
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.5, delay: 0.3 }}
+                
+                className="mt-8 space-y-6"
+              >
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
               {socialLinks.map(({ icon: Icon, label, href }) => (
                 <li key={label}>
                   <Link
@@ -101,34 +117,60 @@ export default function Footer1() {
                 </li>
               ))}
             </ul>
-          </div>
+                  </motion.div>
 
-          
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                   
+                  </motion.div>
+                </div>
 
-            
+                <motion.div
+                  className="space-y-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  
+                </motion.div>
 
-            <div className="text-center sm:text-left">
-              
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full"
+                >
+                  
+                </motion.div>
+              </motion.form>
             </div>
 
-            <div className="text-center sm:text-left">
-              
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="relative my-8 flex items-center justify-center overflow-hidden pr-8"
+            >
+              <div className="flex flex-col items-center justify-center overflow-hidden">
+                <article className="relative mx-auto h-[350px] min-h-60 max-w-[450px] overflow-hidden rounded-3xl border bg-gradient-to-b from-blue-600 to-blue-700 p-6 text-3xl tracking-tight text-white md:h-[450px] md:min-h-80 md:p-8 md:text-4xl md:leading-[1.05] lg:text-5xl">
+                  Innovation in Motion
+                  <div className="absolute -right-20 -bottom-20 z-10 mx-auto flex h-full w-full max-w-[300px] items-center justify-center transition-all duration-700 hover:scale-105 md:-right-28 md:-bottom-28 md:max-w-[550px]">
+                    <Earth
+                      scale={1.1}
+                      baseColor={[0.008, 0.2, 0.540]}
+                      markerColor={[0, 0, 0]}
+                      glowColor={[0.008, 0.2, 0.540]}
+                    />
+                  </div>
+                </article>
+              </div>
+            </motion.div>
           </div>
         </div>
-
-        <div className="mt-12 border-t pt-6">
-          <div className="text-center sm:flex sm:justify-between sm:text-left">
-            <p className="text-sm">
-              <span className="block sm:inline">All rights reserved.</span>
-            </p>
-
-            <p className="text-secondary-foreground/70 mt-4 text-sm transition sm:order-first sm:mt-0">
-              &copy; 2025 {data.company.name}
-            </p>
-          </div>
-        </div>
-        
-    </footer>
+      </div>
+    </section>
   );
 }

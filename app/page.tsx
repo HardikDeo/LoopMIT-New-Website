@@ -179,7 +179,7 @@ export default function Home() {
     <>
     
     <div className="min-h-screen bg-[#0a0a0a] overflow-x-hidden">
- 
+   
       {/* Navigation Bar - Fixed at top with backdrop blur */}
       <Navbar1/>
 
@@ -288,7 +288,7 @@ export default function Home() {
 
       {/* Footer - Site links and information */}
       <footer className="py-12 px-6 border-t border-gray-800/50 bg-[#0a0a0a]">
-        <Footer1/>
+        
       </footer>
     </div>
     </>
