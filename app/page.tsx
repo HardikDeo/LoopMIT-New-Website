@@ -21,10 +21,10 @@ import { CoverDemo } from '@/components/ui/speed';
 import Sponsors from '@/components/ui/sponsors';
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
-import Footer from '@/components/ui/footer';
-import Preloader from '@/components/ui/Preloader';
-import Footer1 from '@/components/mvpblocks/footer-4col';
 
+import Preloader from '@/components/ui/Preloader';
+
+import CTA from '@/components/mvpblocks/cta-1';
 export default function Home() {
   // Refs for DOM elements to target with GSAP animations
   const heroRef = useRef(null);
@@ -287,8 +287,8 @@ export default function Home() {
       </section>
 
       {/* Footer - Site links and information */}
-      <footer className="py-12 px-6 border-t border-gray-800/50 bg-[#0a0a0a]">
-        
+      <footer id ="contact" className="py-10 px-5 bg-gradient-to-b from-[#0a0a0a] to-[#111111] ">
+        <CTA/>
       </footer>
     </div>
     </>
