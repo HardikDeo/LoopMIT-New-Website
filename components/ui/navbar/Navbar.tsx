@@ -72,7 +72,7 @@ export function Navbar1() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-white dark:text-neutral-300"
+                className="relative text-white dark:text-neutral-300 bg-black"
               >
                 <span className="block">{item.name}</span>
               </a>

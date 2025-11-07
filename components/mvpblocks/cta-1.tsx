@@ -8,8 +8,8 @@ export default function CTA1() {
   return (
     <div className="w-full h-full bg-transparent">
      
-      <section className="mx-auto max-w-9xl z-10 px-4 py-6 lg:px-8 lg:py-20">
-        <div className="grid grid-cols-2 relative isolate w-full overflow-hidden rounded-2xl">
+      <section className="mx-auto max-w-9xl z-10 px-4 py-6 lg:px-8 lg:py-20 sm:px-4 sm:py-10">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 relative isolate w-full overflow-hidden rounded-2xl">
           
           
           <div className="relative isolate overflow-hidden px-4 py-12 sm:px-24">
