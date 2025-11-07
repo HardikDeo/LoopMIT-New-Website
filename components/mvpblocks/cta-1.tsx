@@ -2,7 +2,7 @@ import { Globe, Mail, Phone,Instagram} from 'lucide-react';
 import Link from 'next/link';
 import Globe1 from './globe1';
 
-import  {WavyBackground1}  from '../ui/background';
+
 
 export default function CTA1() {
   return (

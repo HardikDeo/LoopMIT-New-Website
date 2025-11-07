@@ -25,6 +25,7 @@ gsap.registerPlugin(ScrollTrigger);
 import Preloader from '@/components/ui/Preloader';
 
 import CTA from '@/components/mvpblocks/cta-1';
+import { Contact } from '@/components/ui/background';
 export default function Home() {
   // Refs for DOM elements to target with GSAP animations
   const heroRef = useRef(null);
